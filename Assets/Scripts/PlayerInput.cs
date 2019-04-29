@@ -57,7 +57,7 @@ public class PlayerInput : MonoBehaviour
             if (playerState == PlayerState.Run)
             {
 
-                if (Input.GetKeyDown(KeyCode.W))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     playerState = PlayerState.Jump;
                     _rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
@@ -67,7 +67,7 @@ public class PlayerInput : MonoBehaviour
                     animator.SetBool("Run", false);
 
                 }
-                if (Input.GetKeyDown(KeyCode.S))
+                if (Input.GetKeyDown(KeyCode.C))
                 {
                     // crouch
                     playerState = PlayerState.Crouch;
@@ -78,7 +78,7 @@ public class PlayerInput : MonoBehaviour
 
             }
 
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 if (playerState == PlayerState.Jump)
                 {
@@ -93,16 +93,15 @@ public class PlayerInput : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.C))
         {
 
             if (playerState == PlayerState.Crouch)
             {
-
-                playerState = PlayerState.Run;
                 animator.SetTrigger("Up");
-                if (GameManager.CurrentGameState == GameStates.Game)
+                if(GameManager.currentGameState == GameStates.Game)
                 {
+                    playerState = PlayerState.Run;
                     animator.SetBool("Run", true);
                 }
             }
@@ -111,7 +110,7 @@ public class PlayerInput : MonoBehaviour
     void GetUp()
     {
 
-        if (!Input.GetKey(KeyCode.S))
+        if (!Input.GetKey(KeyCode.C))
         {
             animator.SetTrigger("Up"); animator.SetBool("Run", true);
             playerState = PlayerState.Run;
@@ -217,6 +216,8 @@ else if(playerState == PlayerState.RunOnPlatform){
         {
 
             case GameStates.GameOver: animator.SetTrigger("Death");animator.SetBool("Run", false); break;
+
+            case GameStates.GameStart: animator.ResetTrigger("Up");break;
 
             case GameStates.Game: animator.SetBool("Run", true); playerState = PlayerState.Run; break;
         }

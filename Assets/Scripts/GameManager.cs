@@ -107,7 +107,9 @@ Button play, retry;
             case GameStates.GameStart:
                 PoolManager.ClearAllOnScreen();
 				corporateScore = playerScore = 0;
-				CurrentGameState = GameStates.Game;
+                corporateScoreText.text = corporateScore.ToString();
+                playerScoreText.text = playerScore.ToString();
+                CurrentGameState = GameStates.Game;
 				break;
             case GameStates.GameOver:
               Invoke("ChangeMenuState",3.5f);

@@ -32,7 +32,7 @@ public class SpawnManager : MonoBehaviour
             if (Time.time - waveTimer > waveInterval)
             {
                 waveTimer = Time.time;
-                if (wave.Length > +1)
+                if (currentWave < wave.Length - 1)
                 {
                     currentWave++;
                 }
@@ -55,11 +55,11 @@ public class SpawnManager : MonoBehaviour
                 else if (Time.time - platformTime > platformObstacleInterval)
                 {
                     platformTime = Time.time;
-                    spawnTime = Time.time + 2;
+                    spawnTime = Time.time + 1 ;
                     GameObject salary = PoolManager.Instantiate("CircularPlatform", points[3].position, points[3].rotation).GetGameObject();
                     salary.transform.SetParent(circles[0]);
                 }
-                else
+                else if(Time.time - platformTime < platformObstacleInterval -1)
                 {
                     spawnTime = Time.time;
                     int index = UnityEngine.Random.Range(0, 2);
@@ -91,4 +91,5 @@ public class SpawnManager : MonoBehaviour
             currentWave = 0;
         }
     }
+
 }
