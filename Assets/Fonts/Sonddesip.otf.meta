@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: bdba23b64b4e1d54291cc47745aaa915
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sonddesip
+  fontNames:
+  - Sonddesip
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 970bda25d6a68e5419f7cd6b7d002ed9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
